@@ -1,5 +1,6 @@
 <template>
-    <section aria-modal="true" class="slds-modal slds-fade-in-open slds-back">
+    <div class="slds-tabs_card">
+    <section aria-modal="true" class="slds-modal slds-fade-in-open">
         <div class="slds-modal__container slds-p-around_xx-small">
             <lightning-modal-header label="Hire new Employee!!"></lightning-modal-header>
             <lightning-modal-body>
@@ -7,7 +8,7 @@
                         name="Employees" label="Employee" value="" placeholder="Select Employee" options={dataPickList}
                         onchange={handleChange} required validity="">
                 </lightning-combobox>
-                <div class="slds-m-around_xxx-small">
+                <div class="slds-p-around_xxx-small">
                     <lightning-input tupe="text" label='Enter employee position' onchange={positionInputHandler}></lightning-input>
                 </div>
                 <p>Selected employeeId is: {employeeId}</p>
@@ -21,5 +22,6 @@
             </lightning-modal-footer>
         </div>
     </section>
+    </div>
     <div class="slds-backdrop slds-backdrop_open"></div>
 </template>

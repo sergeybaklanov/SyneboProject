@@ -35,7 +35,7 @@ public with sharing class MovieEmployeeTriggerTest{
         System.debug('movieEmployeeResultList: ' + movieEmployeeResultList);
 
         System.debug('movieEmployeeResultList: ' + movieEmployeeResultList.size());
-        System.assertEquals(10, movieEmployeeResultList.size());
+        System.assertEquals(10, movieEmployeeResultList.size(), 'Insertion of 10 records Movie_Employee fail');
     }
 
     @IsTest

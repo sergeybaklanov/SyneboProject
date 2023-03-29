@@ -18,7 +18,7 @@ public with sharing class CinemaScheduleController{
         //Get information about all movies related to the cinema according to date that user selected
         List<Cinema_Movie__c> cinemaMovieList = [SELECT Id, Premiere_date__c, Shown_till__c, Movie__c, Movie__r.Name, Cinema__r.Country__c
                                                  FROM Cinema_Movie__c
-                                                 WHERE Cinema__c = :cinemaRecordId AND Premiere_date__c <= :selectedDate AND Shown_till__c >= :selectedDate];
+                                                 WHERE Cinema__c = :cinemaRecordId AND Shown_till__c >= :selectedDate AND Premiere_date__c <= :selectedDate];
         System.debug('cinemaMovieList: ' + cinemaMovieList);
 
         // List where we will put all movies that still shown
@@ -46,7 +46,9 @@ public with sharing class CinemaScheduleController{
                                                       FROM Movie_Employee__c
                                                       WHERE Position__c = 'Director' AND Movie__c IN:movieResultIdsList];
 
-        System.debug('Returning List ' + movieEmployeesList);
-        return movieEmployeesList;
+        
+            System.debug('Returning List ' + movieEmployeesList);
+            return movieEmployeesList;
+       
     }
 }
