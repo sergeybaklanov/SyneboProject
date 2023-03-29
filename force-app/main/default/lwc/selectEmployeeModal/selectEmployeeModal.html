@@ -1,0 +1,25 @@
+<template>
+    <section aria-modal="true" class="slds-modal slds-fade-in-open slds-back">
+        <div class="slds-modal__container slds-p-around_xx-small">
+            <lightning-modal-header label="Hire new Employee!!"></lightning-modal-header>
+            <lightning-modal-body>
+                <lightning-combobox
+                        name="Employees" label="Employee" value="" placeholder="Select Employee" options={dataPickList}
+                        onchange={handleChange} required validity="">
+                </lightning-combobox>
+                <div class="slds-m-around_xxx-small">
+                    <lightning-input tupe="text" label='Enter employee position' onchange={positionInputHandler}></lightning-input>
+                </div>
+                <p>Selected employeeId is: {employeeId}</p>
+                <p>Entered employee position: {employeePosition} </p>
+            </lightning-modal-body>
+            <lightning-modal-footer>
+                <lightning-button variant="brand" class="slds-m-around_small"
+                                  label="Save" onclick={handleSave}>
+                </lightning-button>
+                <lightning-button class="slds-m-around_small" label="Cancel" onclick={handleCancel}></lightning-button>
+            </lightning-modal-footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

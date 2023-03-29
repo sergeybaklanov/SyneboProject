@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Key__c</fullName>
+    <businessOwnerUser>sergeybaklanov0468@resourceful-otter-aojuvb.com</businessOwnerUser>
+    <businessStatus>Active</businessStatus>
+    <externalId>false</externalId>
+    <label>Key</label>
+    <length>255</length>
+    <required>false</required>
+    <securityClassification>Public</securityClassification>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

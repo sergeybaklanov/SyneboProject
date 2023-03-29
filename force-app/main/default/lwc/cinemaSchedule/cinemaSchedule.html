@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-tabs_card" >
+        <h1 class="slds-m-around_xx-small" style="text-align:center">Schedule</h1>
+    
+        <lightning-input class="slds-m-around_xx-small"  type="date" label="Select a date" onchange={handleDateChange}></lightning-input>
+
+        <div if:true={showTable}>
+            <span>Cinema Movies</span>
+            <lightning-datatable  key-field="id" show-row-number-column="false" 
+            hide-checkbox-column="true" columns={columns} data={dataCinemaMovies}>
+            </lightning-datatable>
+        </div>
+        <div if:true={hasNoDataInfo}>
+            <h1>No available movies at this date</h1>
+        </div>
+    </div>
+</template>

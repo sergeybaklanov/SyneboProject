@@ -1,0 +1,6 @@
+<aura:component>
+    <h1>Hello This tag inside message component</h1>
+    <aura:attribute name="message" type="String" />
+    <h2>{!v.message}</h2>
+
+</aura:component>

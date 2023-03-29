@@ -1,0 +1,60 @@
+<apex:page controller="WorklogsListController" renderAs="pdf">
+    <!-- <apex:image alt="icon" title="icon" url="{!URLFOR($Resource.worklogListDoc, 'elements/visualforce-pages.png')}" /> -->
+  <apex:image alt="icon" title="icon" url="{!$Resource.picture}" width="150" height="150"/>
+    <!-- <apex:stylesheet value="{!URLFOR($Resource.worklogListDoc,'elements/style.css')}" /> -->
+    
+  <div class="header">
+            <apex:sectionHeader title="{!project.Name}" />
+        </div>
+    <div class="container">
+        <table class="tabel1">
+            <tr>
+                <td>Created Date:
+                    <apex:outputField value="{!project.CreatedDate}" />
+                </td>
+                <td>Contact:
+                    <apex:outputField value="{!project.Primary_Contact__c}" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <apex:outputText value="{!totalBillableHours}">Total Billable Hours:</apex:outputText>
+                </td>
+                <td>Contact Phone:
+                    <apex:outputField value="{!project.Primary_Contact__r.Phone}" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <apex:outputText value="{!totalActualHours}">Total Actual Hours:</apex:outputText>
+                </td>
+                <td>Contact Email:
+                    <apex:outputField value="{!project.Primary_Contact__r.Email}" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h2>Work Logs</h2>
+    <div class="table2">
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                <apex:pageBlockTable columns="6" value="{!worklogsList}" var="worklog" align="center" border="1px" cellpadding="10px">
+                    <apex:column headerValue="#">
+                        <apex:outputText value="{!rowNumber}" />
+                        <apex:variable var="rowNumber" value="{!rowNumber + 1}" />
+                    </apex:column>
+                    <apex:column value="{!worklog.Description__c}" />
+                    <apex:column value="{!worklog.Type__c}" />
+                    <apex:column value="{!worklog.Sub_type__c}" />
+                    <apex:column value="{!worklog.Actual_hours__c}" />
+                    <apex:column value="{!worklog.Billable_hours__c}" />
+                </apex:pageBlockTable>
+                <apex:stylesheet value="{!URLFOR($Resource.worklogListDoc,'worklogListAddElements/style.css')}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </div>
+    <div class="dateCreation">Date creation:
+        <apex:outputText value="{!dateCreation}"></apex:outputText>
+    </div>
+    <apex:stylesheet value="{!$Resource.style}"/>
+</apex:page>

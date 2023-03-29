@@ -1,0 +1,15 @@
+<template>
+    <header>Send PDF Report</header>
+    <!-- <div class="name">Email</div> -->
+    <div class="slds-p-vertical_small lgc-bg">
+        <lightning-input type="email" label="Email" value={email}></lightning-input>
+    </div>
+    <div if:false={isSend} class="button">
+        <lightning-button label="Send" title="Send Email" onclick={handleClick}> Some button
+        </lightning-button>
+    </div>
+    <div if:true={isSend}>
+      <lightning-spinner alternative-text="Loading..." size="small">
+            </lightning-spinner>
+    </div>
+</template>

@@ -1,0 +1,11 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable">
+
+    <lightning:card variant="Narrow" title="Hello World!" iconName="utility:world" >
+        
+        <p class="slds-p-horizontal_small">
+            <c:Message message="Test demo message"> </c:Message>
+            {!$Label.c.Contact_list}
+        </p>
+    </lightning:card>
+    
+</aura:component>

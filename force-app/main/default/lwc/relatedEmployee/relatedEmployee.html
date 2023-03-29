@@ -1,0 +1,23 @@
+<!--  - Created by User on 07.03.2023. -->
+<!-- Related Employee -->
+<template>
+    <div class="slds-color__background_gray-1 slds-p-around_medium">
+        <div style="height: 300px">
+            <lightning-datatable key-field="id" show-row-number-column="true" data={data}
+                                 columns={columns} onrowselection={selectedRows}></lightning-datatable>
+        </div>
+        <div class="slds-m-around_medium">
+        <span class="slds-p-around_medium">
+            <lightning-button type="button" label='Hire Employee' onclick={addNewEmployeeClick}>
+        </lightning-button>
+        </span>
+            <span class="slds-p-around_medium">
+            <lightning-button type="button" label='Dismiss an employee' onclick={dismissNewEmployeeClick}>
+        </lightning-button>
+        </span>
+        </div>
+        <div if:true={showModal}>
+            <c-select-employee-modal oncancel={handleCancelParent} onsave={handleSaveParent}></c-select-employee-modal>
+        </div>
+    </div>
+</template>

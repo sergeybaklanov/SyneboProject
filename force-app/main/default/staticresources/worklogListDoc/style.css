@@ -1,0 +1,40 @@
+table.tabel1 {
+    padding: 10px;
+    text-align: left;
+}
+
+table.tabel1 td {
+    padding: 5px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.sectionHeader {
+    text-align: center;
+}
+
+.pageBlock {
+    text-align: center;
+}
+
+.pageBlockTable {
+    margin: 0 auto;
+    border: 1px solid;
+    cellpadding: 10px;
+    align: center;
+}
+
+.pageBlockTable td {
+    padding: 10px;
+}
+
+.pageBlockSection {
+    text-align: center;
+}
+
+.dateCreation {
+    padding-top: 100px;
+    text-align: center;
+}

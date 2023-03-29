@@ -1,0 +1,29 @@
+.header {
+    text-align: center;
+}
+.container
+{
+    padding-left:10%; 
+}
+
+.tabel1 {
+    padding: 10px;
+    text-align: left;
+}
+
+.tabel1 td {
+    padding: 5px;
+}
+
+h2 {
+    text-align: left;
+}
+
+.tabel2 {
+    align-content: center;
+    padding-left:100px; 
+}
+
+.dateCreation {
+    padding-top: 100px;
+}

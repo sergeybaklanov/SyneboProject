@@ -1,0 +1,16 @@
+<aura:component controller="ProjectIssuesController"
+				implements="flexipage:availableForRecordHome,force:hasRecordId" >
+
+
+                <aura:attribute name="issuesList" type="List"  />
+	
+	<!-- Do init -->
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	
+	{!v.recordId}
+
+    <aura:iteration items="{!v.issuesList}" var="issue_i">
+       <p>{!issue_i.Summary__c}</p> 
+    </aura:iteration>
+
+</aura:component>
