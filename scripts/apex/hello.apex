@@ -19,5 +19,6 @@
 //     movie_i.Status__c= 'Decline';
 // }
 // update moviesList;
-DeleteMoviesBatch batch = new DeleteMoviesBatch();
-Database.executeBatch(batch, 4);
+// DeleteMoviesBatch batch = new DeleteMoviesBatch();
+// Database.executeBatch(batch, 4);
+ReviewsController.getSiteInformation('5');
