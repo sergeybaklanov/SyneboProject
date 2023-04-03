@@ -66,7 +66,7 @@ public with sharing class MovieTriggerHandler extends TriggerHandler{
     private static void checkPickField(Map<Id, Movie__c> oldMoviesMap){
         for (Id movieId_i : oldMoviesMap.keySet()){
             if (oldMoviesMap.get(movieId_i).Denie_To_Delete__c == true){
-                oldMoviesMap.get(movieId_i).addError('You cannot delete this movie because it is denied to delete. Record Id: ' + movieId_i);
+                oldMoviesMap.get(movieId_i).addError('You cannot delete this movie because it is denied to delete.');
             }
         }
     }

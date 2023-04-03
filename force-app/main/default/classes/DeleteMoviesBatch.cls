@@ -1,5 +1,5 @@
-public class DeleteMoviesBatch implements Schedulable, Database.Batchable<SObject>, Database.Stateful{
-    private static String errorsLog = '';
+global class DeleteMoviesBatch implements Schedulable, Database.Batchable<SObject>, Database.Stateful{
+    global String errorsLog = '';
     public void execute(SchedulableContext context){
         Database.executeBatch(this);
     }
@@ -18,15 +18,10 @@ public class DeleteMoviesBatch implements Schedulable, Database.Batchable<SObjec
                 System.debug('Record delete failed!');
             }
             for (Database.Error err : deleteResult.getErrors()){
-                errorsLog += 'The following error has occurred. ' + err.getStatusCode() + ': ' + err.getMessage() + 
-                         'Fields that affected this error: ' + err.getFields() + '|';
-                // System.debug('The following error has occurred.');
-                // System.debug(err.getStatusCode() + ': ' + err.getMessage());
-                // System.debug('Fields that affected this error: ' + err.getFields());
+                errorsLog += 'Record Id: ' + deleteResult.getId() + ' | Message: ' + err.getMessage() + '\n';
             }
-            System.debug('errorsLog!!!!!!!!: ' + errorsLog);
-
         }
+        System.debug('errorsLog in execute: ' + errorsLog);
     }
 
     public void finish(Database.BatchableContext BC){
@@ -43,6 +38,7 @@ public class DeleteMoviesBatch implements Schedulable, Database.Batchable<SObjec
         body += 'Number of errors: ' + job.NumberOfErrors + '.\n';
 
         body += errorsLog;
+        System.debug('errorsLog in finish: ' + errorsLog);
 
         mail.setPlainTextBody(body);
         Messaging.sendEmail(new List<Messaging.SingleEmailMessage>{ mail });

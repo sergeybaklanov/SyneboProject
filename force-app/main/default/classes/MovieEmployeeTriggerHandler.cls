@@ -59,39 +59,12 @@ public with sharing class MovieEmployeeTriggerHandler extends TriggerHandler{
             }
         }
 
-        // for(Movie_Employee__c movieEmployee_i : newMovieEmployeeList){
-        //     if(employeePositionList.containsKey(movieEmployee_i.Employee__c)){
-        //         if(employeePositionList.get(movieEmployee_i.Employee__c).contains(movieEmployee_i.Position__c)){
-        //             movieEmployee_i.Position__c.addError(movieEmployee_i.Employee__c+' employee already has ' + movieEmployee_i.Position__c + ' position on this movie');
-        //         } else {
-        //             employeePositionList.get(movieEmployee_i.Employee__c).add(movieEmployee_i.Position__c);
-        //         }
-        //     } else{
-        //         employeePositionList.put(movieEmployee_i.Employee__c, new List<String>{movieEmployee_i.Position__c});
-        //     }
-        // }
-
-        // for(Id employeeId_i : employeePositionList.keySet()){
-
-        // }
-
-
-        // for (Movie_Employee__c movieEmployee_i : newMovieEmployeeList){
-        //     newMovieIdsSet.add(movieEmployee_i.Movie__c);
-        //     newEmployeeIdsSet.add(movieEmployee_i.Employee__c);
-        // }
 
         if (Trigger.isInsert || Trigger.isUpdate){
             List<Movie_Employee__c> existingMovieEmployeeList = [SELECT Id, Movie__c, Employee__c, Position__c
                                                                  FROM Movie_Employee__c
                                                                  WHERE Movie__c IN:newMovieIdsSet AND Employee__c IN:newEmployeeIdsSet];
 
-            // !!!!!!!!!!!!!!!!!!!!!!  for(Movie_Employee__c existingMovieEmployee_i : existingMovieEmployeeList)
-            // {
-            //     if(oldMovieEmployeeMap==null|| !(oldMovieEmployeeMap.get))
-            // }
-
-            //System.debug('I am inside Insert and Update trigger');
             for (Movie_Employee__c movieEmployee_i : newMovieEmployeeList){
                 if (oldMovieEmployeeMap == null || !(oldMovieEmployeeMap.get(movieEmployee_i.Id).Position__c == movieEmployee_i.Position__c)){
                     for (Movie_Employee__c existingMovieEmployee_i : existingMovieEmployeeList){
