@@ -32,4 +32,26 @@ public class TestDataFactory{
         return employeeList;
     }
 
+    public static List<Movie_Review__c> createMovieReviewsList(Integer num, Id movie, Id moviePortalUser, Boolean doInsert){
+        List<Movie_Review__c> movieReviewList = new List<Movie_Review__c>();
+        for (Integer i = 0; i < num; i++){
+            movieReviewList.add(new Movie_Review__c(Movie_Portal_User__c = moviePortalUser, Movie__c = movie, Title__c = 'Test title' + i, Body__c = 'Test body' + i));
+        }
+        if (doInsert){
+            insert movieReviewList;
+        }
+        return movieReviewList;
+    }
+
+    public static List<Movie_Portal_User__c> createMoviePortalUsersList(Integer numberOfUsers, Boolean doInsert){
+        List<Movie_Portal_User__c> usersList = new List<Movie_Portal_User__c>();
+        for (Integer i = 0; i < numberOfUsers; i++){
+            usersList.add(new Movie_Portal_User__c(Name = 'Test Portal User' + i, Email__c = 'test' + i + '@mail.com'));
+        }
+        if (doInsert){
+            insert usersList;
+        }
+        return usersList;
+    }
+
 }

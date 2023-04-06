@@ -5,7 +5,7 @@
     <columns>Movie__c</columns>
     <columns>Title__c</columns>
     <columns>Body__c</columns>
-    <columns>External_Id__c</columns>
+    <columns>Movie_Portal_User__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

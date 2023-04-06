@@ -2,7 +2,7 @@
 // You can execute queries in VS Code by selecting the
 //     query text and running the command:
 //     SFDX: Execute SOQL Query with Currently Selected Text
+//SELECT Id, Movie_Portal_User__r.Email__c,Movie__c,Movie__r.External_Id__c 
+//FROM Movie_Review__c WHERE Movie__c= 'a0968000007l4ncAAA'
 
- SELECT Id, Premiere_date__c, Shown_till__c,Movie__c 
-            FROM Cinema_Movie__c 
-            WHERE Cinema__c='a0C68000011eHrZEAU'
+SELECT Id,(SELECT Id FROM Movie_Reviews__r)FROM Movie__c WHERE Id = 'a0968000007l4ncAAA'
