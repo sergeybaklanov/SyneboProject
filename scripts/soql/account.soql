@@ -5,4 +5,5 @@
 //SELECT Id, Movie_Portal_User__r.Email__c,Movie__c,Movie__r.External_Id__c 
 //FROM Movie_Review__c WHERE Movie__c= 'a0968000007l4ncAAA'
 
-SELECT Id,(SELECT Id FROM Movie_Reviews__r)FROM Movie__c WHERE Id = 'a0968000007l4ncAAA'
+SELECT Id, Name, Location__c, Location__Latitude__s, Location__Longitude__s
+  FROM Cinema__c WHERE DISTANCE(Location__c, GEOLOCATION(53.1144697,18.0155275), 'km') < 10

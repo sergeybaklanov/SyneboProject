@@ -1,10 +1,22 @@
 <template>
-   <lightning-card title="title">
+<lightning-card  variant="Narrow"  title="Hello" icon-name="standard:account">
+    <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
         <p class="slds-p-horizontal_small">
-            Card Body
+            <lightning-map 
+            zoom-level="10"
+            center={mapCenter}
+            onmarkerselect={handleMarkerSelect}
+            selected-marker-value={selectedMarkerValue}
+            map-markers={markers}
+            list-view="available"
+            >     
+            </lightning-map>
         </p>
+             
         <p slot="footer">
-            Card Footer
+            <c-cinema-nav-tab></c-cinema-nav-tab>
+            <lightning-button class="slds-p-around_small" onclick={clickButton} label="Select cinema"></lightning-button> 
+            
         </p>
-    </lightning-card>">
+</lightning-card>
 </template>
